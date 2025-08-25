@@ -41,6 +41,11 @@ def sphere_area(dome_diameter, material_name='유리', dome_thickness=1):
         print('오류: 지름은 0보다 커야 합니다.')
         return
 
+    # 두께가 유효한 양수인지 확인합니다.
+    if dome_thickness <= 0:
+        print('오류: 두께는 0보다 커야 합니다.')
+        return
+
     # 입력된 매개변수를 전역 변수에 할당합니다.
     material = material_name
     diameter = dome_diameter
@@ -114,7 +119,7 @@ def main():
 
             # 계산이 성공적으로 완료되었는지 확인하고 결과를 출력합니다.
             # 지름이 0 이하일 경우 함수가 조기 종료됩니다.
-            if diameter > 0:
+            if diameter > 0 and thickness > 0:
                 print('-------------------------------------------')
                 print(f'재질 =⇒ {material}, 지름 =⇒ {round(diameter, 3)}, 두께 =⇒ {round(thickness, 3)}, '
                       f'면적 =⇒ {area}, 무게 =⇒ {weight} kg')
